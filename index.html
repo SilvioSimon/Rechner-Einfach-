@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon_Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function appendOperation(operation){
+            document.getElementById("resultArea").innerHTML += operation;
+        }
+        function CalculateResult() {
+            let container = document.getElementById('resultArea');
+            let result = eval(container.innerHTML);
+            container.innerHTML = result;
+        }
+
+            function deleteLast() {
+                let container = document.getElementById('resultArea');
+                container.innerHTML = container.innerHTML.slice(0, -1);     
+            }
+
+        
+            
+    </script>
+</head>
+
+<body>
+    <div id="resultArea"></div>
+
+
+    <table> 
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td onclick="deleteLast()" >DEL</td>
+
+        </tr>
+       
+
+        <tr>
+            <td onclick="appendOperation(7)">7</td>
+            <td onclick="appendOperation(8)">8</td>
+            <td onclick="appendOperation(9)">9</td>
+            <td onclick="appendOperation(' / ')" class="Highlight">/</td>
+        </tr> 
+
+        <tr>
+            <td onclick="appendOperation(4)">4</td>
+            <td onclick="appendOperation(5)">5</td>
+            <td onclick="appendOperation(6)">6</td>
+            <td onclick="appendOperation(' * ')" class="Highlight">x</td>
+         
+        </tr>
+        
+        <tr>
+            <td onclick="appendOperation(1)">1</td>
+            <td onclick="appendOperation(2)">2</td>
+            <td onclick="appendOperation(3)">3</td>
+            <td onclick="appendOperation(' + ')" class="Highlight">+</td>
+
+
+        <tr>
+            <td onclick="appendOperation(',')">,</td>
+            <td onclick="appendOperation(0)">0</td>
+            <td onclick="CalculateResult()" id="result">=</td>
+            <td onclick="appendOperation(' - ')" class="Highlight">-</td>
+        </tr>
+    </table>
+
+</body>
+</html>
